@@ -15,6 +15,13 @@ def countLetters(message):
     freq = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
     #loop through each letter
+    for letter in message:
+        if (alpha.find(letter)>= 0):
+            spot = (alpha.find(letter)) % 26
+            freq[spot] = freq[spot] + 1
+        else:
+            freq[spot] = freq[spot]
+
     #Find the position in the alphabet
     #Increase the frequency at that position. If position was 5, then frequencies[5] = frequencies[5] + 1
 
@@ -43,9 +50,8 @@ def writeToFile(fileText):
 
 
 def main():
-    msg = input("Enter a message: ")
-    countLetters(msg)
-
+    message = input("Enter a message: ")
+    countLetters(message)
 
 
 if __name__ == '__main__':
